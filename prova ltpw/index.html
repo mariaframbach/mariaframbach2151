@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <!--css bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Hello, world!</title>
+</head>
+<body>
+    <div class="imagem">
+        <img id="foto">
+    </div>
+    <section class="container" id="conteudo">
+        <h1> <output id="titulo">Compre seu ingresso!</output></h1>
+        <form class="row g-3" name="form">
+            <div class="col-md-6">
+              <label for="nome" class="form-label">Nome</label>
+              <input type="text" class="form-control" id="nome">
+            </div>
+            <div class="col-md-6">
+                <label for="cpf" class="form-label">CPF</label>
+                <input type="text" class="form-control" id="cpf" placeholder="xxx.xxx.xxx-xx">
+              </div>
+              <div class="col-12">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="exemplo@email.com">
+              </div>
+              <div class="col-md-6">
+                <label for="data" class="form-label">Data da Sessão</label>
+                <input type="date" class="form-control" id="data">
+              </div>
+              <div class="col-md-6">
+                <label for="filme" class="form-label">Escolha o filme:</label>
+                <select id="filme" class="form-select" onchange="trocarFilme()">
+                  <option selected>Choose...</option>
+                  <option value="jujutsu">Jujutsu Kaisen 0</option>
+                  <option value="animais">Animais Fantásticos e os Segredos de Dumbledore</option>
+                  <option value="doutor">Doutor Estranho no Multiverso da Loucura</option>
+                </select>
+              </div>
+              <div class="col-md-12">
+                  <label for="horario">Horário da sessão:</label>
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="horario" id="manhã" value="manhã" onchange="calc()">
+                      <label class="form-check-label" for="manhã">09:00</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="horario" id="tarde" value="tarde" onchange="calc()">
+                      <label class="form-check-label" for="tarde">13:00</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="horario" id="noite" value="noite" onchange="calc()">
+                      <label class="form-check-label" for="noite">19:00</label>
+                    </div>
+              </div>
+              <div class="col-6">
+                  <label for="opcionais">Opcionais</label>
+                  <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="pipoca" onchange="opcionais(15,this.checked)">
+                      <label class="form-check-label" for="gridCheck">
+                        Pipoca
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="bebidas" onchange="opcionais(10,this.checked)">
+                      <label class="form-check-label" for="gridCheck">
+                        Bebidas
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="guloseimas" onchange="opcionais(5,this.checked)">
+                      <label class="form-check-label" for="gridCheck">
+                        Guloseimas
+                      </label>
+                    </div>
+                    <div class="col-6" id="saida">
+                      R$ <output id="total">0</output>,00
+                    </div>
+              <div class="col-12" id="botao">
+                <button type="reset" class="btn btn-primary" onclick="trocarFilme()">Limpar</button>
+                <button type="button" class="btn btn-success" onclick="alerta()">Enviar</button>
+              </div>
+            </form>
+    </section>
+
+    <script src="js/script.js"></script>
+
+    <!--script bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <div class="modal" tabindex="-1" id="alerta">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Orçamento</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-center"> <output id="mensagem"> ... </output> </p>
+            </div>
+            <div class="modal-footer">    
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
+</body>
+</html>
